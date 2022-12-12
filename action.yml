@@ -1,0 +1,19 @@
+name: Actions Workflow
+on:
+  schedule: 
+   - cron: '* * * * *'
+  push:
+    branches:
+      - main
+      - test
+jobs:
+  run-on: self-hosted
+  steps:
+    - name: checkout
+      users: actions/checkout@v2
+
+    - name: run some simple commands
+      run:
+        pwd
+        ls -apt get update
+
